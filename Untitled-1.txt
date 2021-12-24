@@ -1,0 +1,23 @@
+"Kaynaklar Hafta 9"da yer alan paralel sıralama algoritmalarını kullanacağınız bir ödevdir.
+
+Eğer öğrenci numaranızın son basamağı 5'ten küçük ise mergesort (numara % 10 < 5), değilse quicksort algoritmasını temel alan bir paralel sıralama programını C dilinde OpenMP ile yazın. Temel aldığı algoritma doğru olduğu sürece, nasıl paralelleştirileceği size kalmış.
+
+Eğer farklı bir algoritmayı temel alan bir program yazarsanız, 20 puanınız kırılacaktır.
+
+Temel aldığınız seri sıralama algoritmasını ve bunu nasıl paralelleştirdiğinizi, kaynak kodunuzun en üstüne yorum olarak birkaç satırda açıklayın.
+
+Programınız, diziyi örnekteki gibi bir "girdi.txt" dosyasından okumalı. Bu dosyanın ilk satırında maksimum thread sayısı, ikinci satırında ise dizideki eleman sayısı yazacaktır.
+
+Girdilerde ilk satırdaki sayı en fazla 32, ikinci satırdaki sayı en fazla 1 milyon (1000000) olacaktır.
+
+Dizinin elemanları 1 milyondan küçük pozitif tamsayılar olacaktır.
+
+Programınız, her bir sayı yeni bir satırda olacak şekilde girdi dizisinin küçükten büyüğe sıralanmış halini "çıktı.txt" dosyasına yazdırmalıdır. Çıktı dosyasının da ilk satırında maksimum thread sayısı, ikinci satırında dizideki eleman sayısı yazmalıdır.
+
+Dosya okuma işlemi biter bitmez duvar saati (omp_get_wtime()) başlatılıp, dosya yazma işleminden hemen önce durdurularak elde edilen süre, saniye cinsinden ve virgülden sonra 2 basamak olacak şekilde konsola (terminale) yazdırılmalıdır.
+
+Yalnızca kaynak kodunuzu (c dosyası) gönderin. Kaynak kodunuz gcc 10.2.0 ile derlenecek ve farklı girdilerle test edilecektir.
+
+Yeniden gönderim: Bir yeniden gönderim hakkı vardır. Süre veya yeniden gönderim hakkınız bittiğinde son yüklenen dosya değerlendirilecek, bunun dışında gönderim kabul edilmeyecektir.
+
+Son Teslim: 07.01.2022 23:00
