@@ -1,4 +1,13 @@
 #include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include "omp.h"
+
+#define MAX_SIZE 1000000
+
+void generate_array(){
+
+}
 
 int main(){
 
