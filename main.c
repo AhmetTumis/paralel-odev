@@ -6,9 +6,10 @@
 
 
 #define MAX_SIZE 1000000
+int thread_count = 0;
+int int_count = 0;
 
-
-int main(){
+int *generate_list(){
 
     int i = 0;
     int buffer[2];
@@ -33,6 +34,8 @@ int main(){
         printf("%d ", buffer[i]);
     }
     
+    thread_count = buffer[0];
+    int_count = buffer[1];
     
     int *sortPtr;
     sortPtr = (int*) malloc(buffer[1]* sizeof(int));
@@ -66,13 +69,36 @@ int main(){
         
         fclose(in_file);
 
-        for (i = 0; i < buffer[1]; ++i) {
-            printf("%d ", sortPtr[i]);
-        }
-
-
+    
     }
     
-    return 0;
+    return sortPtr;
 }
 
+int main(){
+
+    int *arrayToSort;
+    double start, stop;
+
+    arrayToSort = generate_list();
+
+
+    for (int i = 0; i < 10; ++i) {
+        printf("%d ", arrayToSort[i]);
+    }  
+
+    printf("\nTotal thread count: %d", thread_count);
+    printf("\nTotal integer count: %d", int_count);
+
+
+    start = omp_get_wtime();
+    #pragma omp parallel{
+
+    }
+    stop = omp_get_wtime();
+
+
+
+
+    return 0;
+}
