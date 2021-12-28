@@ -1,7 +1,7 @@
 from random import randint
 from random import seed
 
-f = open("girdi2.txt", "w")
+f = open("girdi.txt", "w")
 
 seed(69420)
 

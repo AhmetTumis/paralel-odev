@@ -9,12 +9,12 @@
 int thread_count = 0;
 int int_count = 0;
 
-int *generate_list(){
+int *generateList(){
 
     int i = 0;
     int buffer[2];
 
-    FILE *in_file = fopen("girdi2.txt", "r");
+    FILE *in_file = fopen("girdi.txt", "r");
 
     struct stat sb;
     stat("girdi.txt", &sb);
@@ -48,7 +48,7 @@ int *generate_list(){
     else{ //arrayi doldur
         printf("Memory allocated!\n");
         
-        FILE *in_file = fopen("girdi2.txt", "r");
+        FILE *in_file = fopen("girdi.txt", "r");
 
         struct stat sb;
         stat("girdi.txt", &sb);
@@ -114,17 +114,33 @@ void mergeSort(int *X, int n, int *tmp)
     mergeSortAux(X, n, tmp);
 }
 
+int writeToFile(int *array){
 
+    FILE *fptr;
+    int i;
+
+    fptr = fopen("cikti.txt", "w");
+
+    fprintf(fptr, "%d\n", thread_count);
+    fflush(fptr);
+    fprintf(fptr, "%d\n", int_count);
+    fflush(fptr);
+
+    for(i=0; i<int_count; i++){
+        fprintf(fptr, "%d\n", array[i]);
+        fflush(fptr);
+    }
+    fclose(fptr);
+
+}
 int main(){
 
     int *arrayToSort;
     double start, stop;
     
+    arrayToSort = generateList();
 
-    arrayToSort = generate_list();
-
-
-    for (int i = 0; i < 10; ++i) {
+    for (int i = 0; i < 10; i++) {
         printf("%d ", arrayToSort[i]);
     }  
 
@@ -146,10 +162,7 @@ int main(){
 
     printf("\nTime: %f (s) n",stop-start);
 
-
-    /*for (int i = 0; i < int_count; ++i) {
-        printf("%d ", arrayToSort[i]);
-    }*/
+    writeToFile(arrayToSort);
 
     return 0;
 }
